@@ -1,39 +1,39 @@
 //DECLARE A VARIABLE
 
 //Display todays date at the top of the page!!
-var currentTimeVar = moment();
-$("#currentDay").text("Today's Date: " + currentTimeVar.format("MM-DD-YYYY"));
+var currentTimeVar = moment().format("MM-DD-YYYY");
+$("#currentDay").text("Today's Date: " + currentTimeVar);
 
-var savedtext=[];
-
+console.log(currentTimeVar);
+var savedtext = [];
 
 //define variables
-var text9= $(".9text").val();
-var saveStatus9 = false,
+var text9 = $(".9text").val();
+var saveStatus9 = false;
 
-var text10= $(".10text").val();
-var saveStatus10= false;
+var text10 = $(".10text").val();
+var saveStatus10 = false;
 
-var text11 = $(".11text").val(); 
-var saveStatus11= false;
+var text11 = $(".11text").val();
+var saveStatus11 = false;
 
-var text12= $(".12text").val();
-saveStatus12= false;
+var text12 = $(".12text").val();
+saveStatus12 = false;
 
-var text1= $(".1text").val();
-saveStatus1= false;
+var text1 = $(".1text").val();
+saveStatus1 = false;
 
-var text2= $(".2text").val();
-saveStatus2= false;
+var text2 = $(".2text").val();
+saveStatus2 = false;
 
-var text3= $(".3text").val();
-saveStatus3= false;
+var text3 = $(".3text").val();
+saveStatus3 = false;
 
-var text4= $(".4text").val();
-saveStatus4= false;
+var text4 = $(".4text").val();
+saveStatus4 = false;
 
-var text5= $(".5text").val();
-var saveStatus5= false;
+var text5 = $(".5text").val();
+var saveStatus5 = false;
 
 //event listeners
 
@@ -48,7 +48,7 @@ $("button4").on("click", saveFunction4);
 $("button5").on("click", saveFunction5);
 
 function savefunction9() {
-    localStorage.setItem("",savedText)
+  //localStorage.setItem("", savedText);
 }
 // userInputsArray[0].saveStatus = true;
 //event listeners for save buttons, calls saveFunction>>
