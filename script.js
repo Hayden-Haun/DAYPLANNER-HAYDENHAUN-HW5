@@ -83,6 +83,10 @@ function compareTimes() {
 
 //Initialize function calls three different functions to start when the program is loaded AND when a save button is clicked
 function init() {
+  for (var i = 0; i < 9; i++) {
+    $(`.${i}text`).val(userTextArray[i]);
+  }
+
   compareTimes();
   saveText();
   displayText();
@@ -90,6 +94,10 @@ function init() {
 
 //this function saves the text in each block into the user array
 function saveText() {
+  for (var i = 0; i < 9; i++) {
+    userTextArray[i] = $(`.${i}text`).val();
+    userDataArray[i].text = userTextArray[i];
+  }
   localStorage.setItem("userTextArray", JSON.stringify(userTextArray));
 }
 
@@ -107,8 +115,8 @@ $(document).on("click", ".saveBtn", function (event) {
   for (var i = 0; i < 9; i++) {
     userDataArray[i].text = $(`.${i}text`).val();
     userTextArray[i] = userDataArray[i].text;
-    console.log(userTextArray);
-    console.log(i);
+    // console.log(userTextArray);
+    // console.log(i);
   }
   saveText();
   // displayText();
