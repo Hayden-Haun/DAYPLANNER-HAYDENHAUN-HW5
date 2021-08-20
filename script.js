@@ -58,7 +58,7 @@ var userDataArray = [
     element: $("#row7"),
   },
   {
-    text: "Some String Cheese!",
+    text: $(".8text").val(),
     saveStatus: false,
     momentTime: 17,
     element: $("#row8"),
@@ -67,10 +67,10 @@ var userDataArray = [
 
 //THIS FUNCTION COMPARES THE CURRENT HOUR TO EACH HOUR ON THE PLANNER. IT WILL COLOR EACH TIMEBLOCK ACCORDINGLY
 function compareTimes() {
-  console.log(currentHourVar);
+  // console.log(currentHourVar);
 
   userDataArray.forEach(function (timeBlock) {
-    console.log(timeBlock.momentTime);
+    // console.log(timeBlock.momentTime);
     if (currentHourVar < timeBlock.momentTime) {
       timeBlock.element.addClass("list-group-item-info");
     } else if (currentHourVar === timeBlock.momentTime) {
@@ -81,15 +81,16 @@ function compareTimes() {
   });
 }
 
+//Initialize function calls three different functions to start when the program is loaded AND when a save button is clicked
 function init() {
   compareTimes();
   saveText();
   displayText();
 }
 
+//this function saves the text in each block into the user array
 function saveText() {
   localStorage.setItem("userTextArray", JSON.stringify(userTextArray));
-  //ADD USER TEXT ARRAY TO OBJECT ARRAY
 }
 
 function displayText() {
@@ -99,6 +100,19 @@ function displayText() {
 }
 
 init();
+
+$(document).on("click", ".saveBtn", function (event) {
+  event.preventDefault();
+
+  for (var i = 0; i < 9; i++) {
+    userDataArray[i].text = $(`.${i}text`).val();
+    userTextArray[i] = userDataArray[i].text;
+    console.log(userTextArray);
+    console.log(i);
+  }
+  saveText();
+  // displayText();
+});
 
 //list-group-item-info --- blue
 //list-group-item-success --- green
